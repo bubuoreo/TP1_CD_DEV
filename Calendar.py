@@ -9,3 +9,6 @@
 # - Écrire le programme principal qui propose la saisie d'une date, la valide et affiche le message "date
 # valide" ou "date non valide" selon le cas
 
+import Calendar_func
+
+print(Calendar_func.checkBisextile(800))
