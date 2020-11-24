@@ -12,3 +12,4 @@
 import Calendar_func
 
 print(Calendar_func.checkBisextile(800))
+print(Calendar_func.nbJours(2019,2))
