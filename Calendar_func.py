@@ -58,14 +58,15 @@ def dateValidation(day,month,year):
     # Fonction nous retournant la validité d'une date entrée
 
     try:
-        day >= 1
-        month >= 1
-        month <= 12
+        
         y = int(year)
         m = int(month)
         d = int(day)
+        d >= 1
+        m >= 1
+        m <= 12
     except Exception as ex:
-        return ("Date non valide")
+        return (ex, ": Date non valide")
     lastday = nbJours(m,y)[0]
     if d <= lastday :
         return ("Date valide")
