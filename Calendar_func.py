@@ -22,7 +22,7 @@ def checkBisextile(year):
         return (False)
 
 
-def nbJours(year,month):
+def nbJours(month,year):
     # Fonction qui donne le nombre de jours dans le mois en fonction de l'année
     
     bisextile = None
@@ -42,11 +42,33 @@ def nbJours(year,month):
         bisextile = False
 
     if m in liste30 :
-        return ("Le mois", m, "de l'année", y, "est un mois de 30 jours")
+        return (30, "Ce mois contient 30 jours")
     elif m in liste31 :
-        return ("Le mois", m, "de l'année", y, "est un mois de 31 jours")
+        return (31, "Ce mois contient 31 jours")
     elif m == 2 :
         if bisextile == True :
-            return ("Ce mois de Février de l'année", y, "est un mois de 29 jours")
+            return (29, "Ce mois de Février est un mois de 29 jours")
         else :
-            return ("Ce mois de Février de l'année", y, "est un mois de 28 jours")
+            return (28, "Ce mois de Février est un mois de 28 jours")
+    else : 
+        return ("le mois entré n'est pas un nombre entre 1 et 12")
+
+
+def dateValidation(day,month,year):
+    # Fonction nous retournant la validité d'une date entrée
+
+    try:
+        day >= 1
+        month >= 1
+        month <= 12
+        y = int(year)
+        m = int(month)
+        d = int(day)
+    except Exception as ex:
+        return ("Date non valide")
+    lastday = nbJours(m,y)[0]
+    if d <= lastday :
+        return ("Date valide")
+    else :
+        return ("Date non valide")
+    
